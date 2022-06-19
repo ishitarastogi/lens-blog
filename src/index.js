@@ -1,7 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
+import { apolloClient } from "../src/lib/apollo/apollo-client";
+import { BrowserRouter } from "react-router-dom";
 
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
@@ -9,7 +11,8 @@ import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import App from "./App";
-
+import { ApolloProvider } from "@apollo/client";
+import { DAppProvider } from "@usedapp/core";
 const { chains, provider, webSocketProvider } = configureChains(
   [
     chain.polygonMumbai,
@@ -21,7 +24,7 @@ const { chains, provider, webSocketProvider } = configureChains(
       : []),
   ],
   [
-    alchemyProvider({ alchemyId: process.env.API_KEY }),
+    alchemyProvider({ alchemyId: "TUYzJy6MPMxmHOYEFrqVUDlsdoJu3akj" }),
     publicProvider(),
   ]
 );
@@ -37,15 +40,19 @@ const wagmiClient = createClient({
   provider,
   webSocketProvider,
 });
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
-        <App />
-      </RainbowKitProvider>
-    </WagmiConfig>
-  </React.StrictMode>
+    <ApolloProvider client={apolloClient()}>
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider chains={chains}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>{" "}
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </ApolloProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

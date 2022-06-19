@@ -8,12 +8,12 @@ import {
   getAuthenticationToken,
   getRefreshToken,
   setAuthenticationToken,
-} from "@/lib/apollo/auth/state";
+} from "./auth/state";
 import jwt_decode from "jwt-decode";
 
-import { refreshAuth } from "../../../src/queries/auth/refresh";
-import { LENS_API_URL } from "../../constants";
-
+import { refreshAuth } from "../../api/authentication/refresh";
+// import { LENS_API_URL } from "../../constants";
+const LENS_API_URL = "https://api-mumbai.lens.dev/";
 // type decodedType = {
 //   exp: number;
 //   iat: number;
@@ -26,9 +26,9 @@ let decoded;
 const httpLink = new HttpLink({ uri: LENS_API_URL });
 
 const authLink = new ApolloLink((operation, forward) => {
-  const token = getAuthenticationToken() ;
-  const refreshToken = getRefreshToken() ;
-  if (token) decoded = jwt_decode(token );
+  const token = getAuthenticationToken();
+  const refreshToken = getRefreshToken();
+  if (token) decoded = jwt_decode(token);
 
   // Use the setContext method to set the HTTP headers.
   operation.setContext({
@@ -64,38 +64,38 @@ export const apolloClient = () => {
     link: authLink.concat(httpLink),
     uri: LENS_API_URL,
     cache: new InMemoryCache({
-      typePolicies: {
-        Query: {
-          fields: {
-            explorePublications: lensPagination(["request", ["sortCriteria"]]),
-            publications: lensPagination([
-              "request",
-              ["profileId", "publicationTypes", "commentsOf"],
-            ]),
-            followers: lensPagination(["request", ["profileId"]]),
-            following: lensPagination(["request", ["address"]]),
-          },
-        },
-      },
+      // typePolicies: {
+      //   Query: {
+      //     fields: {
+      //       explorePublications: lensPagination(["request", ["sortCriteria"]]),
+      //       publications: lensPagination([
+      //         "request",
+      //         ["profileId", "publicationTypes", "commentsOf"],
+      //       ]),
+      //       followers: lensPagination(["request", ["profileId"]]),
+      //       following: lensPagination(["request", ["address"]]),
+      //     },
+      //   },
+      // },
     }),
   });
   return apolloClient;
 };
 
-const lensPagination = (keyArgs) => {
-  return {
-    keyArgs: [keyArgs],
-    merge(existing, incoming) {
-      if (!existing) {
-        return incoming;
-      }
-      const existingItems = existing.items;
-      const incomingItems = incoming.items;
+// const lensPagination = (keyArgs) => {
+//   return {
+//     keyArgs: [keyArgs],
+//     merge(existing, incoming) {
+//       if (!existing) {
+//         return incoming;
+//       }
+//       const existingItems = existing.items;
+//       const incomingItems = incoming.items;
 
-      return {
-        items: existingItems.concat(incomingItems),
-        pageInfo: incoming.pageInfo,
-      };
-    },
-  };
-};
+//       return {
+//         items: existingItems.concat(incomingItems),
+//         pageInfo: incoming.pageInfo,
+//       };
+//     },
+//   };
+// };

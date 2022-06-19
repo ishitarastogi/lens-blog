@@ -1,0 +1,21 @@
+.header{
+    display:flex;
+    gap:15px
+}
+.header img{
+    border-radius: 50px;
+
+    border: solid rgbrgba(19, 9, 9, 0.65)
+}
+.container{
+display:flex;
+flex-direction:column;
+gap:25px;
+}
+.main{
+padding:15px;
+
+}
+.createdAt{
+    text-align:right;
+}
