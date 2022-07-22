@@ -1,71 +1,24 @@
-# Getting Started with Create React App
+# Mind Tales
+Mind Tales is Blogging platform build on top of the Lens protocol.
+We used GraphQl API provided by Lens Protcol to build Mind Tales. The functionalities are mentioned below:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. Creating Profile 🙍
+The Profile allows us to create profile. We receive ProfileNFT on creating profile. As required by lens user should be authenticated 
+before creating profile so Login with lens is required before creating profile.
 
-## Available Scripts
+<img width="1394" alt="Screenshot 2022-06-19 at 9 22 39 PM" src="https://user-images.githubusercontent.com/46647968/180417492-8734150f-171f-4e1d-88c0-26bdf3c62902.png">
 
-In the project directory, you can run:
+## 2. Creating Post ✍️
+Post can be created by following Lens protocol Metadata standards. It uses withSig method to do a post from a profile on Lens Protocol. This module is also protected by Authentication. All the data uploading using post are stored on **IPFS**
 
-### `npm start`
+<img width="1397" alt="Screenshot 2022-06-19 at 9 22 27 PM" src="https://user-images.githubusercontent.com/46647968/180420324-d32a233f-0d63-4ff4-8c52-050ccc4bfbde.png">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 3. Explore publication 📋
+This query returns a list of publications based on the top collected or top comments. It shows the blogs created by the users who own profile on our platform.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img width="1424" alt="Screenshot 2022-06-19 at 9 22 01 PM" src="https://user-images.githubusercontent.com/46647968/180420831-7e85a180-f244-47e5-a7c1-1c4b317054d2.png">
 
-### `npm test`
+## 4. Explore Individual Profile: 👻
+This query showed the individual's profile. The publication created by then and their followers, following and pictures.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
+<img width="1273" alt="Screenshot 2022-06-19 at 9 22 50 PM" src="https://user-images.githubusercontent.com/46647968/180421273-c8321ad5-d837-4260-ad8d-8d608766461f.png">
