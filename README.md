@@ -1,6 +1,6 @@
-# Mind Tales
-Mind Tales is Blogging platform build on top of the Lens protocol.
-We used GraphQl API provided by Lens Protcol to build Mind Tales. The functionalities are mentioned below:
+# Mind Tales 🧚
+Mind Tales is a Blogging platform build on top of the Lens protocol.
+We used GraphQl API provided by Lens Protcol to build Mind Tales. The functionalities included in our project are mentioned below:
 
 ## 1. Creating Profile 🙍
 The Profile allows us to create profile. We receive ProfileNFT on creating profile. As required by lens user should be authenticated 
