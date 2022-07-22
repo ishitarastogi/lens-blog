@@ -18,7 +18,7 @@ This query returns a list of publications based on the top collected or top comm
 
 <img width="1424" alt="Screenshot 2022-06-19 at 9 22 01 PM" src="https://user-images.githubusercontent.com/46647968/180420831-7e85a180-f244-47e5-a7c1-1c4b317054d2.png">
 
-## 4. Explore Individual Profile: 👻
+## 4. Explore Individual Profile 👻
 This query showed the individual's profile. The publication created by then and their followers, following and pictures.
 
 <img width="1273" alt="Screenshot 2022-06-19 at 9 22 50 PM" src="https://user-images.githubusercontent.com/46647968/180421273-c8321ad5-d837-4260-ad8d-8d608766461f.png">
